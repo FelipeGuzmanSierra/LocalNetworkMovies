@@ -1,0 +1,41 @@
+version: '3'
+
+volumes:
+  movies_folder:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${MOVIE_FOLDER_PATH}
+
+networks:
+  localnetwork_movies:
+    driver: bridge
+    name: localnetwor_movies
+
+services:
+  localnetwork_movie_db:
+    image: postgres:13-alpine
+    container_name: localnetwork_movie_db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=localnetwork_movies_dev
+    networks:
+      - localnetwork_movies
+  web:
+    container_name: localnetwork_movies
+    build:
+      context: .
+      target: base
+    command: mix phx.server
+    volumes:
+      - .:/app
+      - movies_folder:/app/priv/static/videos
+    ports:
+      - 4000:4000
+    depends_on:
+      - localnetwork_movie_db
+    networks:
+      - localnetwork_movies
