@@ -1,0 +1,11 @@
+<h1>
+  MOVIES
+</h1>
+
+<ul>
+  <%= for movie <- @movies do %>
+    <li>
+      Movie: <a href={Routes.movie_path(@conn, :index, movie)}><%= movie %></a>
+    </li>
+  <% end %>
+</ul>
