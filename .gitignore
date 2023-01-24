@@ -1,0 +1,9 @@
+# BUILD AND DEPENDENCIES FOLDERS
+_build/
+deps/
+
+# DEVELOPMENT CONFIGURATION FILE
+config/dev.exs
+
+# Ignore assets that are produced by build tools.
+priv/static/assets
