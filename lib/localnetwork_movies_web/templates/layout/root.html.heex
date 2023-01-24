@@ -13,6 +13,11 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <%= @inner_content %>
+    <div class="app-container">
+      <div class="app-title">
+        Local Network Movies
+      </div>
+      <%= @inner_content %>
+    </div>
   </body>
 </html>

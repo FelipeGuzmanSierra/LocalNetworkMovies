@@ -1,11 +1,15 @@
-<h1>
-  MOVIES
-</h1>
-
-<ul>
+<ul class="movies-list">
   <%= for movie <- @movies do %>
-    <li>
-      Movie: <a href={Routes.movie_path(@conn, :index, movie)}><%= movie %></a>
+    <li class="movie-row">
+      <div class="movie-list-link">
+        <div class="movie-title">
+          <%= movie %>
+        </div>
+
+        <div class="movie-link">
+          <a href={Routes.movie_path(@conn, :index, movie)}>Play</a>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>

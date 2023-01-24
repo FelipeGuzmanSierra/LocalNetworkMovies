@@ -8,5 +8,5 @@ config/dev.exs
 # Ignore assets that are produced by build tools.
 priv/static/assets
 
-# REMOVE ENVIRONMENT VARIABLES FILE
+# IGNORE PROJECT ENVIRONMENT VARIABLES
 .env

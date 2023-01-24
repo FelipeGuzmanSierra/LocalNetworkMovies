@@ -2,7 +2,7 @@
   <%= @movie_name %>
 </h1>
 
-<video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="" data-setup="{}">
+<video id="movie" class="video-js" controls preload="auto" poster="" data-setup="{}">
   <source src={@movie_path} type="video/mp4" />
   <track kind="captions" src={@subtitles_path} srclang="en" label="English" default />
 
