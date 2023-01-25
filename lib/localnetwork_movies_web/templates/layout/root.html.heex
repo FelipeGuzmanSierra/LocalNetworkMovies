@@ -12,12 +12,16 @@
 
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body>
-    <div class="app-container">
-      <div class="app-title">
-        Local Network Movies
+  <body style="background-color: #202124">
+    <div class="container mx-auto pt-10">
+      <div class="grid lg:grid-cols-6 sm:grid-cols-1">
+        <div class="lg:col-start-2 lg:col-end-6 sm:col-span-1">
+          <div class="text-white text-center font-mono font-bold text-5xl pb-10">
+            Local Network Movies
+          </div>
+          <%= @inner_content %>
+        </div>
       </div>
-      <%= @inner_content %>
     </div>
   </body>
 </html>

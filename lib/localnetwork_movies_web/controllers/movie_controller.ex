@@ -13,12 +13,11 @@ defmodule LocalnetworkMoviesWeb.MovieController do
 
   @spec index(conn(), any()) :: conn()
   def index(%{params: %{"movie_name" => movie_name}} = conn, _params) do
-    formatted_name = format_name(movie_name)
     movie_path = get_movie_path(movie_name)
     subtitles_path = get_subtitles_path(movie_name)
 
     render(conn, "index.html",
-      movie_name: formatted_name,
+      movie_name: movie_name,
       movie_path: movie_path,
       subtitles_path: subtitles_path
     )
@@ -35,14 +34,6 @@ defmodule LocalnetworkMoviesWeb.MovieController do
       :ok -> "/videos/" <> movie_name <> "/subtitles/" <> movie_name <> ".vtt"
       {:error, _error} -> ""
     end
-  end
-
-  @spec format_name(movie_name) :: movie_name()
-  defp format_name(name) do
-    name
-    |> String.split("_")
-    |> Enum.map(fn word -> String.capitalize(word) end)
-    |> Enum.join(" ")
   end
 
   defp validate_subtitles_file_exist(movie_name) do

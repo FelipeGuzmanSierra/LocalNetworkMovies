@@ -1,15 +1,24 @@
-<ul class="movies-list">
-  <%= for movie <- @movies do %>
-    <li class="movie-row">
-      <div class="movie-list-link">
-        <div class="movie-title">
-          <%= movie %>
-        </div>
+<div class="container mx-auto">
+  <div class="grid grid-cols-1 gap-8">
+    <%= for movie <- @movies do %>
+      <div class="col-span-1">
+        <div class="grid lg:grid-cols-8 grid-cols-5 border-4 border-dashed h-20">
 
-        <div class="movie-link">
-          <a href={Routes.movie_path(@conn, :index, movie)}>Play</a>
+          <!-- GRID: TITLE-->
+          <div class="lg:col-span-7 col-span-4">
+            <div class="text-white capitalize font-mono font-bold md:text-3xl text-2xl pt-4 pl-4">
+              <%= format_name(movie) %>
+            </div>
+          </div>
+
+          <!-- GRID: BUTTON -->
+          <div class="lg:col-span-1 col-span-1">
+            <a href={Routes.movie_path(@conn, :index, movie)}>
+              <img src="images/play_button.svg" class="pt-1 lg:w-1/2 md:w-5/12 w-3/4">
+            </a>
+          </div>
         </div>
       </div>
-    </li>
-  <% end %>
-</ul>
+    <% end %>
+  </div>
+</div>
