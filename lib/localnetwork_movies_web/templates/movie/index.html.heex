@@ -1,16 +1,20 @@
-<h1>
-  <%= @movie_name %>
-</h1>
+<div class="grid grid-cols-1">
+  <div class="text-3xl text-white text-center font-mono font-bold">
+    <%= format_name(@movie_name) %>
+  </div>
 
-<video id="movie" class="video-js" controls preload="auto" poster="" data-setup="{}">
-  <source src={@movie_path} type="video/mp4" />
-  <track kind="captions" src={@subtitles_path} srclang="en" label="English" default />
+  <div class="w-1/1">
+    <video id="movie" class="video-js w-auto h-96" controls preload="auto" poster="" data-setup="{}">
+      <source src={@movie_path} type="video/mp4" />
+      <track kind="captions" src={@subtitles_path} srclang="en" label="English" default />
 
-  <p class="vjs-no-js">
-    To view this video please enable JavaScript, and consider upgrading to a
-    web browser that
-    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-  </p>
-</video>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+</div>
 
 <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
